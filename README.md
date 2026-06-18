@@ -78,10 +78,10 @@ This project does not use Maven, so you need to download these JARs manually and
 
 | JAR | Purpose | Download |
 |---|---|---|
-| `mysql-connector-j-9.x.jar` | Official JDBC driver — lets Java talk to MySQL. Without this, nothing works: no login, no job listings, no profiles. | [Maven Repository](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j/9.0.0) → click **jar** in the Files row |
-| `jakarta.mail-2.0.1.jar` | Provides the classes `EmailUtility.java` uses to connect to Gmail's SMTP server and send OTP emails for password resets. | [Maven Repository](https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail/2.0.1) → click **jar** |
-| `jakarta.activation-2.0.1.jar` | Mandatory dependency for Jakarta Mail. Handles MIME type formatting behind the scenes so your HTML emails render correctly in the recipient's inbox. | [Maven Repository](https://mvnrepository.com/artifact/com.sun.activation/jakarta.activation/2.0.1) → click **jar** |
-| `jbcrypt-0.4.jar` | BCrypt library included as a standard library dependency. If you ever migrate from the current PBKDF2 implementation to BCrypt (a common upgrade), this handles automatic salting and hashing with zero extra setup. | [Maven Repository](https://mvnrepository.com/artifact/org.mindrot/jbcrypt/0.4) → click **jar** |
+| `mysql-connector-j-9.x.jar` | Official JDBC driver — lets Java talk to MySQL. Without this, nothing works: no login, no job listings, no profiles. | [Maven Repository](https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.0.0/mysql-connector-j-9.0.0.jar) → click **jar** in the Files row |
+| `jakarta.mail-2.0.1.jar` | Provides the classes `EmailUtility.java` uses to connect to Gmail's SMTP server and send OTP emails for password resets. | [Maven Repository](https://repo1.maven.org/maven2/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar) → click **jar** |
+| `jakarta.activation-2.0.1.jar` | Mandatory dependency for Jakarta Mail. Handles MIME type formatting behind the scenes so your HTML emails render correctly in the recipient's inbox. | [Maven Repository](https://repo1.maven.org/maven2/com/sun/activation/jakarta.activation/2.0.1/jakarta.activation-2.0.1.jar) → click **jar** |
+| `jbcrypt-0.4.jar` | BCrypt library included as a standard library dependency. If you ever migrate from the current PBKDF2 implementation to BCrypt (a common upgrade), this handles automatic salting and hashing with zero extra setup. | [Maven Repository](https://repo1.maven.org/maven2/org/mindrot/jbcrypt/0.4/jbcrypt-0.4.jar) → click **jar** |
 
 **How to add JARs to your IDE:**
 
