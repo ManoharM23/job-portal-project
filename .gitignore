@@ -1,5 +1,4 @@
-```text
-   # Ignore compiled code and system settings# Ignore Maven build output
+# Ignore compiled code and system settings# Ignore Maven build output
 target/
 build/
 
@@ -7,6 +6,3 @@ build/
 .settings/
 .classpath
 .project
-
-# Ignore Mac system files (just in case)
-.DS_Store
