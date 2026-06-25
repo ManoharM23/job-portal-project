@@ -129,3 +129,4 @@ private static final String SENDER_PASSWORD = "your_16_char_app_password";
 ## License
 
 MIT — feel free to use this as a reference or starting point for your own projects.
+
