@@ -11,11 +11,8 @@ import jakarta.mail.internet.MimeMessage;
 
 public class EmailUtility {
 
-    // Your Gmail address that will send the emails
-    private static final String SENDER_EMAIL = "your_email@gmail.com";
-    
-    // Your 16-character Gmail App Password (NOT your normal password)
-    private static final String SENDER_PASSWORD = "YOUR_16_DIGIT_APP_PASSWORD";
+    final String senderEmail = System.getenv("MAIL_USERNAME");
+final String appPassword = System.getenv("MAIL_PASSWORD");
 
     public static boolean sendOtpEmail(String recipientEmail, String otpCode) {
         boolean isSent = false;
