@@ -1,21 +1,15 @@
-name: JobPortal CI
+name: JobPortal CI/CD
 
 on:
   push:
     branches:
       - main
 
-  pull_request:
-    branches:
-      - main
-
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -26,26 +20,26 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Verify Java Version
-        run: java -version
+      - name: Build WAR
+        run: mvn clean package
 
-      - name: Verify Maven Version
-        run: mvn -version
-
-      - name: Download Dependencies
-        run: mvn dependency:resolve
-
-      - name: Compile Project
-        run: mvn clean compile
-
-      - name: Run Tests
-        run: mvn test
-
-      - name: Package WAR
-        run: mvn package
-
-      - name: Upload WAR File
-        uses: actions/upload-artifact@v4
+      - name: Deploy to EC2
+        uses: appleboy/scp-action@v0.1.7
         with:
-          name: JobPortal-WAR
-          path: target/*.war
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "target/*.war"
+          target: "/home/ubuntu/"
+
+      - name: Restart Tomcat
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo cp /home/ubuntu/target/*.war /opt/tomcat/webapps/JobPortal-1.0.war
+            sudo systemctl restart tomcat
+            sleep 20
+            sudo systemctl status tomcat --no-pager
