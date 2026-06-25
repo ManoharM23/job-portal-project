@@ -11,8 +11,8 @@ import jakarta.mail.internet.MimeMessage;
 
 public class EmailUtility {
 
-    final String senderEmail = System.getenv("MAIL_USERNAME");
-final String appPassword = System.getenv("MAIL_PASSWORD");
+   private static final String SENDER_EMAIL = System.getenv("MAIL_USERNAME");
+   private static final String SENDER_PASSWORD = System.getenv("MAIL_PASSWORD");
 
     public static boolean sendOtpEmail(String recipientEmail, String otpCode) {
         boolean isSent = false;
